@@ -1,6 +1,13 @@
 {
   "name": "EFIN - Force Topic Title",
-  "id": "force-topic-title-only",
-  "about_url": "https://connect.efinancethai.com",
-  "version": "0.1"
+  "component": true,
+  "authors": "Paitoon Burapavijitnon",
+  "about_url": "TODO: Force Title Display",
+  "license_url": "TODO: Put your theme's LICENSE URL here",
+  "learn_more": "Force Topic Title",
+  "theme_version": "0.0.1",
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {},
+  "modifiers": {}
 }
