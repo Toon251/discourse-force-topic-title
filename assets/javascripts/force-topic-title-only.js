@@ -7,8 +7,10 @@ export default {
     withPluginApi("0.8.7", (api) => {
       api.routeTitle((currentRoute) => {
         // ตรวจสอบว่าเป็น route ของ topic
+        console.log(currentRoute.name)
         if (currentRoute.name === "topic") {
           // คืนค่าแค่ชื่อหัวข้อกระทู้
+          console.log(currentRoute.model)
           return currentRoute.model.title;
         }
         // ปล่อยให้ route อื่นๆ ใช้งานชื่อ default
