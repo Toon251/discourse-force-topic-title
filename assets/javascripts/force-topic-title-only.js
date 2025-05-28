@@ -1,18 +1,19 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
-  name: "force-topic-title-only",
+  name: "topic-title-only",
 
-  initialize(container) {
+  initialize() {
     withPluginApi("0.8.7", (api) => {
-      api.modifyClass("controller:topic", {
-        pluginId: "force-topic-title-only",
-
-        get title() {
-          // คืนค่าแค่หัวข้อกระทู้อย่างเดียว ไม่ต้องเอาหมวดหมู่และชื่อเว็บไซต์มาแสดง
-          return this.model.title;
+      api.routeTitle((currentRoute) => {
+        // ตรวจสอบว่าเป็น route ของ topic
+        if (currentRoute.name === "topic") {
+          // คืนค่าแค่ชื่อหัวข้อกระทู้
+          return currentRoute.model.title;
         }
+        // ปล่อยให้ route อื่นๆ ใช้งานชื่อ default
+        return null;
       });
     });
-  }
+  },
 };
